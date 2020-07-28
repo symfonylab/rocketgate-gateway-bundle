@@ -4,7 +4,7 @@
 namespace SymfonyLab\RocketGateGatewayBundle;
 
 
-use Nevmmv\RocketGate\MerchantInterface;
+use SymfonyLab\RocketGateReport\MerchantInterface;
 
 interface RebillRequestInterface
 {
