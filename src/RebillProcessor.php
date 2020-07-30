@@ -32,6 +32,9 @@ class RebillProcessor
         $request->Set(GatewayRequest::MERCHANT_CUSTOMER_ID(), $rebill->getCustomer());
         $request->Set(GatewayRequest::MERCHANT_INVOICE_ID(), $rebill->getInvoice());
         $request->Set(GatewayRequest::CARD_HASH(), $rebill->getCardHash());
+        if ($rebill->getProductId() !== 0) {
+            $request->Set(GatewayRequest::MERCHANT_PRODUCT_ID(), $rebill->getProductId());
+        }
         $request->Set(GatewayRequest::AMOUNT(), $rebill->getAmount());
         $request->Set(GatewayRequest::REBILL_AMOUNT(), $rebill->getAmount());
         $request->Set(GatewayRequest::CURRENCY(), $rebill->getCurrency());

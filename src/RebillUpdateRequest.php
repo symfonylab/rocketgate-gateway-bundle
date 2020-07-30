@@ -27,6 +27,8 @@ final class RebillUpdateRequest implements RebillRequestInterface
 
     private string $frequency = 'MONTHLY';
 
+    private int $productId = 0;
+
     /**
      * RebillUpdateRequest constructor.
      * @param MerchantInterface $merchant
@@ -38,7 +40,7 @@ final class RebillUpdateRequest implements RebillRequestInterface
      * @param \DateTimeImmutable $start
      * @param string $frequency
      */
-    public function __construct(MerchantInterface $merchant, string $customer, string $invoice, string $cardHash, float $amount, string $currency, \DateTimeImmutable $start, string $frequency)
+    public function __construct(MerchantInterface $merchant, string $customer, string $invoice, string $cardHash, float $amount, string $currency, \DateTimeImmutable $start, string $frequency, int $productId=0)
     {
         $this->merchant = $merchant;
         $this->customer = $customer;
@@ -48,6 +50,7 @@ final class RebillUpdateRequest implements RebillRequestInterface
         $this->currency = $currency;
         $this->start = $start;
         $this->frequency = $frequency;
+        $this->productId = $productId;
     }
 
     /**
@@ -112,5 +115,13 @@ final class RebillUpdateRequest implements RebillRequestInterface
     public function getFrequency(): string
     {
         return $this->frequency;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->productId;
     }
 }
