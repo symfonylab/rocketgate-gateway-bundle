@@ -6,9 +6,15 @@ namespace SymfonyLab\RocketGateGatewayBundle;
 
 class SuccessUpdateRebillResponse implements RebillResponseInterface
 {
-    public string $transactionId;
+    /**
+     * @var string
+     */
+    public $transactionId;
 
-    public string $rebillDate;
+    /**
+     * @var string
+     */
+    public $rebillDate;
 
     /**
      * SuccessRebillResponse constructor.

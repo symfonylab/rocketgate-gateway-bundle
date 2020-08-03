@@ -6,9 +6,15 @@ namespace SymfonyLab\RocketGateGatewayBundle;
 
 class FailRebillResponse implements RebillResponseInterface
 {
-    private int $code;
+    /**
+     * @var int
+     */
+    private $code;
 
-    private int $reason;
+    /**
+     * @var int
+     */
+    private $reason;
 
     /**
      * FailRebillResponse constructor.

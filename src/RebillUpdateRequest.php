@@ -13,21 +13,45 @@ final class RebillUpdateRequest implements RebillRequestInterface
      */
     private $merchant;
 
-    private string $customer;
+    /**
+     * @var string
+     */
+    private $customer;
 
-    private string $invoice;
+    /**
+     * @var string
+     */
+    private $invoice;
 
-    private string $cardHash;
+    /**
+     * @var string
+     */
+    private $cardHash;
 
-    private float $amount;
+    /**
+     * @var float
+     */
+    private $amount;
 
-    private string $currency = 'USD';
+    /**
+     * @var string
+     */
+    private $currency = 'USD';
 
-    private \DateTimeImmutable $start;
+    /**
+     * @var \DateTimeImmutable
+     */
+    private $start;
 
-    private string $frequency = 'MONTHLY';
+    /**
+     * @var string
+     */
+    private $frequency = 'MONTHLY';
 
-    private int $productId = 0;
+    /**
+     * @var int
+     */
+    private $productId = 0;
 
     /**
      * RebillUpdateRequest constructor.

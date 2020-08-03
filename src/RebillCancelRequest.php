@@ -13,9 +13,15 @@ final class RebillCancelRequest implements RebillRequestInterface
      */
     private $merchant;
 
-    private string $customer;
+    /**
+     * @var string
+     */
+    private $customer;
 
-    private string $invoice;
+    /**
+     * @var string
+     */
+    private $invoice;
 
     /**
      * RebillCancelRequest constructor.
