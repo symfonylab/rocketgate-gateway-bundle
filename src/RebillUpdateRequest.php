@@ -34,6 +34,11 @@ final class RebillUpdateRequest implements RebillRequestInterface
     private $amount;
 
     /**
+     * @var float
+     */
+    private $rebillAmount;
+
+    /**
      * @var string
      */
     private $currency = 'USD';
@@ -64,13 +69,14 @@ final class RebillUpdateRequest implements RebillRequestInterface
      * @param \DateTimeImmutable $start
      * @param string $frequency
      */
-    public function __construct(MerchantInterface $merchant, string $customer, string $invoice, string $cardHash, float $amount, string $currency, \DateTimeImmutable $start, string $frequency, int $productId=0)
+    public function __construct(MerchantInterface $merchant, string $customer, string $invoice, string $cardHash, float $amount, float $rebillAmount, string $currency, \DateTimeImmutable $start, string $frequency, int $productId=0)
     {
         $this->merchant = $merchant;
         $this->customer = $customer;
         $this->invoice = $invoice;
         $this->cardHash = $cardHash;
         $this->amount = $amount;
+        $this->rebillAmount = $rebillAmount;
         $this->currency = $currency;
         $this->start = $start;
         $this->frequency = $frequency;
@@ -115,6 +121,14 @@ final class RebillUpdateRequest implements RebillRequestInterface
     public function getAmount(): float
     {
         return $this->amount;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRebillAmount(): float
+    {
+        return $this->rebillAmount;
     }
 
     /**

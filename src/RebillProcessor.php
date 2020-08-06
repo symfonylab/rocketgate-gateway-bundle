@@ -36,7 +36,7 @@ class RebillProcessor
             $request->Set(GatewayRequest::MERCHANT_PRODUCT_ID(), $rebill->getProductId());
         }
         $request->Set(GatewayRequest::AMOUNT(), $rebill->getAmount());
-        $request->Set(GatewayRequest::REBILL_AMOUNT(), $rebill->getAmount());
+        $request->Set(GatewayRequest::REBILL_AMOUNT(), $rebill->getRebillAmount());
         $request->Set(GatewayRequest::CURRENCY(), $rebill->getCurrency());
         $request->Set(GatewayRequest::REBILL_START(), $rebill->getStart()->format('Y-m-d H:i:s'));
         $request->Set(GatewayRequest::REBILL_FREQUENCY(), $rebill->getFrequency());
