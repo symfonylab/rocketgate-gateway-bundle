@@ -10,11 +10,15 @@ interface OneClickRequestInterface
 {
     public function getMerchant(): MerchantInterface;
 
+    public function getSiteId(): int;
+
     public function getCustomer(): string;
 
     public function getInvoice(): string;
 
-    public function getCardHash(): string;
+    public function getTransactionId(): string;
+
+    public function getProductId(): string;
 
     public function getAmount(): float;
 }

@@ -12,6 +12,11 @@ class Request implements OneClickRequestInterface
     private $merchant;
 
     /**
+     * @var int
+     */
+    private $siteId;
+
+    /**
      * @var string
      */
     private $customer;
@@ -24,7 +29,12 @@ class Request implements OneClickRequestInterface
     /**
      * @var string
      */
-    private $cardHash;
+    private $transactionId;
+
+    /**
+     * @var string
+     */
+    private $productId;
 
     /**
      * @var float
@@ -34,17 +44,21 @@ class Request implements OneClickRequestInterface
     /**
      * Request constructor.
      * @param MerchantInterface $merchant
+     * @param int $siteId
      * @param string $customer
      * @param string $invoice
-     * @param string $cardHash
+     * @param string $transactionId
+     * @param string $productId
      * @param float $amount
      */
-    public function __construct(MerchantInterface $merchant, string $customer, string $invoice, string $cardHash, float $amount)
+    public function __construct(MerchantInterface $merchant, int $siteId, string $customer, string $invoice, string $transactionId, string $productId, float $amount)
     {
         $this->merchant = $merchant;
+        $this->siteId = $siteId;
         $this->customer = $customer;
         $this->invoice = $invoice;
-        $this->cardHash = $cardHash;
+        $this->transactionId = $transactionId;
+        $this->productId = $productId;
         $this->amount = $amount;
     }
 
@@ -54,6 +68,14 @@ class Request implements OneClickRequestInterface
     public function getMerchant(): MerchantInterface
     {
         return $this->merchant;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSiteId(): int
+    {
+        return $this->siteId;
     }
 
     /**
@@ -75,9 +97,17 @@ class Request implements OneClickRequestInterface
     /**
      * @return string
      */
-    public function getCardHash(): string
+    public function getTransactionId(): string
     {
-        return $this->cardHash;
+        return $this->transactionId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductId(): string
+    {
+        return $this->productId;
     }
 
     /**
